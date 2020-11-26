@@ -6,6 +6,8 @@ use App\Http\Controllers\livreurController;
 use App\Http\Controllers\magasinController;
 use App\Http\Controllers\ExportImportLivreurController;
 use App\Http\Controllers\ExportImportMagasinController;
+use App\Http\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('/v1')->group(function(){
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+
+], function ($router) {
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/refresh', [AuthController::class, 'refresh']);
+    Route::get('/user-profile', [AuthController::class, 'userProfile']);    
+
+
+// Route::group([
+//     'middleware' => 'api',
+//     'prefix' => 'auth'
+// ], function () {
+// Route::prefix('/v1')->group(function(){
 
 ///////////////// LIVREUR //////////////////////////////////////////////////////////////////////////////
 
@@ -61,8 +79,8 @@ Route::prefix('/v1')->group(function(){
     Route::get('importmagasin', [ExportImportMagasinController::class, 'import']);
 
 
-    }
-);
+});
+
 
 
 

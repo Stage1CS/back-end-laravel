@@ -2,10 +2,10 @@
 
 namespace App\Imports;
 
-use App\Models\livreur;
+use App\Models\magasin;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class livreurImport implements ToModel
+class magasinImport implements ToModel
 {
     /**
     * @param array $row
@@ -14,7 +14,7 @@ class livreurImport implements ToModel
     */
     public function model(array $row)
     {
-        return new livreur([
+        return new magasin([
             'id_livreur'  => $row['id_livreur'],    
             'nom'         => $row['nom'],
             'prénom'      => $row['prénom'],
