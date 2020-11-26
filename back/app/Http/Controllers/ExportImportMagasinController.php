@@ -8,7 +8,7 @@ use App\Imports\magasinImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\magasin;
 
-class ExportImportController extends Controller
+class ExportImportMagasinController extends Controller
 {
     /**
     * @return \Illuminate\Support\Collection

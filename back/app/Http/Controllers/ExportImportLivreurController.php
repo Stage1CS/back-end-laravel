@@ -8,7 +8,7 @@ use App\Imports\livreurImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\livreur;
 
-class ExportImportController extends Controller
+class ExportImportLivreurController extends Controller
 {
     /**
     * @return \Illuminate\Support\Collection

@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\livreurController;
 use App\Http\Controllers\magasinController;
-//use App\Http\Controllers\ExportImportLivreurController;
+use App\Http\Controllers\ExportImportLivreurController;
+use App\Http\Controllers\ExportImportMagasinController;
 
 /*
 |--------------------------------------------------------------------------
