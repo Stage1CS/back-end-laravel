@@ -14,7 +14,11 @@ class CreateLivreursTable extends Migration
     public function up()
     {
         Schema::create('livreurs', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id_livreur');
+            $table->string('nom');
+            $table->string('prénom');
+            $table->string('mail');
+            $table->integer('num');
             $table->timestamps();
         });
     }

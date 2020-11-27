@@ -13,8 +13,15 @@ class CreateMagasinsTable extends Migration
      */
     public function up()
     {
-        Schema::create('magasins', function (Blueprint $table) {
-            $table->id();
+        Schema::create('Magasins', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->text('detail');
+            //$table->string('geolocation');
+            $table->string('Phone');
+            $table->string('email');
+            $table->string('lat');
+            $table->string('lng');
             $table->timestamps();
         });
     }

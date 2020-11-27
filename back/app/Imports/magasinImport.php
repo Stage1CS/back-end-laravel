@@ -15,17 +15,12 @@ class magasinImport implements ToModel
     public function model(array $row)
     {
         return new magasin([
-            'id_livreur'  => $row['id_livreur'],    
-            'nom'         => $row['nom'],
-            'prénom'      => $row['prénom'],
-            'mail'        => $row['mail'], 
-            'num'         => $row['num'], 
-            'nb_ajout'    => $row['nb_ajout'],
-            'id_zone'     => $row['id_zone'],
-            'created_at'  => $row['created_at'],
-            'updated_at'  => $row['updated_at'],
-            //'password'   => \Hash::make($row['password']),
-
+            'id'         => $row['id'],    
+            'name'       => $row['name'],
+            'detail'     => $row['detail'],
+            'geolocation'=> $row['geolocation'], 
+            'Phone'      => $row['Phone'], 
+            'email'      => $row['email'],
         ]);
     }
 }

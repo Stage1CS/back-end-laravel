@@ -27,7 +27,7 @@ class magasinController extends Controller
     {
         if (magasin::create($request->all())) {
             return response()->json([
-                'success' => 'Actualité créée avec succès'
+                'success' => 'magasin créée avec succès'
             ], 200);
         }
     }
@@ -54,7 +54,7 @@ class magasinController extends Controller
     {
         if ($magasin->update($request->all())) {
             return response()->json([
-                'success' => 'Actualité modifiée avec succès'
+                'success' => 'magasin modifiée avec succès'
             ], 200);
         }
     }

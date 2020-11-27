@@ -23,7 +23,7 @@ class ExportImportLivreurController extends Controller
         $file = Excel::download(new livreurExport, 'livreurs.xlsx');
         if ($file){
             return response()->json([
-                'success' => 'data correctly downloaded',
+                'success' => 'Excel file exported successfully',
             ], 200);
         }
         return $file;
@@ -32,10 +32,10 @@ class ExportImportLivreurController extends Controller
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function import() 
+    public function import(Request $request) 
     {
-        Excel::import(new livreurImport,request()->file('file'));
+        Excel::import(new livreurImport,request()->file('exemple.xlsx'));
              
-        return back();
+        return back()->with('success', 'Excel file imported successfully');
     }
 }

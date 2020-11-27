@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,8 +33,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 ///////////////// AUTHENTIFICATION //////////////////////////////////////////////////////////////////////////////
 
-    Route::post('login', [AuthController::class, 'login']);
-    Route::post('register', [AuthController::class, 'register']);
+    Route::post('login', [AuthController::class, 'login'])->name('login');
+    //Route::post('register', [AuthController::class, 'register']);
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::get('user-profile', [AuthController::class, 'userProfile']);    
@@ -62,17 +62,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('magasin/{magasin}', [magasinController::class, 'show_magasin']);
 
     Route::delete('magasin/{magasin}', [magasinController::class, 'destroy_magasin']);
-    Route::put('magasin/{magasin}', [LivreurController::class, 'update_magasin']);
+    Route::put('magasin/{magasin}', [magasinController::class, 'update_magasin']);
 
     ///////////////// EXPORT - IMPORT LIVREUR //////////////////////////////////////////////////////////////////////////////
 
     Route::get('exportlivreur', [ExportImportLivreurController::class, 'export']);
-    Route::get('importlivreur', [ExportImportLivreurController::class, 'import']);
+    Route::post('importlivreur', [ExportImportLivreurController::class, 'import']);
 
     ///////////////// EXPORT - IMPORT MAGASIN//////////////////////////////////////////////////////////////////////////////
 
     Route::get('exportmagasin', [ExportImportMagasinController::class, 'export']);
-    Route::get('importmagasin', [ExportImportMagasinController::class, 'import']);
+    Route::post('importmagasin', [ExportImportMagasinController::class, 'import']);
 
 
 });

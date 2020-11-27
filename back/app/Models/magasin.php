@@ -13,11 +13,14 @@ class magasin extends Model
     
     protected $fillable = [
         'name', 
-        'geolocation',
         'detail',
         'Phone',
         'email',
         'lat',
-        'lng'
+        'lng',
+        'updated_at',
+        'created_at',
     ];
+
+    protected $primaryKey = 'id';
 }

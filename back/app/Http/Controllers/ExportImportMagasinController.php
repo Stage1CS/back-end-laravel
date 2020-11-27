@@ -20,10 +20,10 @@ class ExportImportMagasinController extends Controller
     */
     public function export() 
     {
-        $file = Excel::download(new magasinExport, 'livreurs.xlsx');
+        $file = Excel::download(new magasinExport, 'magasins.xlsx');
         if ($file){
             return response()->json([
-                'success' => 'data correctly downloaded',
+                'success' => 'Excel file exported successfully',
             ], 200);
         }
         return $file;
@@ -32,10 +32,10 @@ class ExportImportMagasinController extends Controller
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function import() 
+    public function import(Request $request) 
     {
         Excel::import(new magasinImport,request()->file('file'));
              
-        return back();
+        return back()->with('success', 'data added successfully');
     }
 }

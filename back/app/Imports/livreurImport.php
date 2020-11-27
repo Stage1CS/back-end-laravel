@@ -15,15 +15,14 @@ class livreurImport implements ToModel
     public function model(array $row)
     {
         return new livreur([
-            'id_livreur'  => $row['id_livreur'],    
+            //'id_livreur'  => $row['id_livreur'],    
             'nom'         => $row['nom'],
             'prénom'      => $row['prénom'],
             'mail'        => $row['mail'], 
             'num'         => $row['num'], 
-            'created_at'  => $row['created_at'],
-            'updated_at'  => $row['updated_at'],
+            //'created_at'  => $row['created_at'],
+            //'updated_at'  => $row['updated_at'],
             //'password'   => \Hash::make($row['password']),
-
         ]);
     }
 }
