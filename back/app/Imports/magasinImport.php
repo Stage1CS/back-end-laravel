@@ -15,12 +15,14 @@ class magasinImport implements ToModel
     public function model(array $row)
     {
         return new magasin([
-            'id'         => $row['id'],    
+            //'id'         => $row['id'],    
             'name'       => $row['name'],
             'detail'     => $row['detail'],
-            'geolocation'=> $row['geolocation'], 
+            //'geolocation'=> $row['geolocation'], 
             'Phone'      => $row['Phone'], 
             'email'      => $row['email'],
+            'lat'        => $row['lat'], 
+            'lng'        => $row['lng'],
         ]);
     }
 }
