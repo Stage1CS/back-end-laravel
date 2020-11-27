@@ -7,6 +7,11 @@ use App\Models\magasin;
 
 class magasinController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth:api');
+    }
+
     public function index_magasin()
     {
         return magasin::all();

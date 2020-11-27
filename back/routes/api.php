@@ -24,23 +24,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group([
-    'middleware' => 'api',
-    'prefix' => 'auth'
+    /*
+        auth:api means you are instructing the auth middleware to 
+        use the api Authentication guard. This guard is defined in config/auth.php
+    */
 
-], function ($router) {
-    Route::post('/login', [AuthController::class, 'login']);
-    Route::post('/register', [AuthController::class, 'register']);
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::post('/refresh', [AuthController::class, 'refresh']);
-    Route::get('/user-profile', [AuthController::class, 'userProfile']);    
+ Route::group(['middleware' => 'api' ], function () {
 
+///////////////// AUTHENTIFICATION //////////////////////////////////////////////////////////////////////////////
 
-// Route::group([
-//     'middleware' => 'api',
-//     'prefix' => 'auth'
-// ], function () {
-// Route::prefix('/v1')->group(function(){
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('refresh', [AuthController::class, 'refresh']);
+    Route::get('user-profile', [AuthController::class, 'userProfile']);    
 
 ///////////////// LIVREUR //////////////////////////////////////////////////////////////////////////////
 
@@ -53,7 +50,6 @@ Route::group([
     Route::get('livreurPrenom', [livreurController::class, 'show_livreur_prenom']);
     Route::get('livreurMail', [livreurController::class, 'show_livreur_email']);
     Route::get('livreurNum', [livreurController::class, 'show_livreur_numero']);
-    //Route::get('livreur/zone/{id_zone}', [LivreurController::class, 'show_livreur_zone_choisi']);
     
     Route::delete('livreur/{livreur}', [livreurController::class, 'destroy_livreur']);
     Route::put('livreur/{livreur}', [livreurController::class, 'update_livreur']);

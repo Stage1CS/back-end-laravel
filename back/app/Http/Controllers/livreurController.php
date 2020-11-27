@@ -8,6 +8,11 @@ use App\Models\livreur;
 
 class LivreurController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth:api');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,10 +20,7 @@ class LivreurController extends Controller
      */
     public function index_livreur()
     {
-        //$var = Livreur::all();
-        //return $var->toJson();
         return Livreur::all();
-        //return Livreur::orderByDesc('created_at')->get();
     }
 
     /**
@@ -44,7 +46,6 @@ class LivreurController extends Controller
      */
     public function show_livreur(Livreur $livreur)
     {
-        // return livreur::find($livreur->id_livreur);
         return $livreur; 
     }
 
@@ -74,23 +75,6 @@ class LivreurController extends Controller
         $num = $request->num;
         $chercher = livreur::where('num', $num)->get();
         return $chercher->toJson(); 
-    }
-    
-
-    public function get_zones()
-    {
-        //recuperer les zones
-        //$zones = zone::all();
-        $zones = DB::table('zone')->get();
-        return view('livreur/zone')->with('z',$zone);
-    }
-
-    public function show_livreur_zone_choisi(Request $request)
-    {
-        $z = $request->get('zone');
-        $select = DB::table ('zone')->where('nom_zone', $z)->first();
-        $selct = DB::table('livreurs')->where('id_zone', $select->id_zone)->get();  
-        return view('livreur/affichage')->with('l', $selct); 
     }
 
     /**

@@ -10,6 +10,11 @@ use App\Models\magasin;
 
 class ExportImportMagasinController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth:api');
+    }
+
     /**
     * @return \Illuminate\Support\Collection
     */
