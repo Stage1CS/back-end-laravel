@@ -43,6 +43,27 @@ class magasinController extends Controller
         return $magasin;
     }
 
+    public function show_magasin_nom(Request $request)
+    {
+        $name = $request->name;
+        $chercher = magasin::where('name', $name)->get();
+        return $chercher->toJson();         
+    }
+
+    public function show_magasin_email(Request $request)
+    {
+        $email = $request->eamil;
+        $chercher = magasin::where('eamil', $email)->get();
+        return $chercher->toJson();         
+    }
+
+    public function show_magasin_phone(Request $request)
+    {
+        $Phone = $request->Phone;
+        $chercher = magasin::where('Phone', $Phone)->get();
+        return $chercher->toJson();         
+    }
+    
     /**
      * Update the specified resource in storage.
      *

@@ -61,6 +61,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
     Route::get('magasin/{magasin}', [magasinController::class, 'show_magasin']);
 
+    Route::get('magasinNom', [magasinController::class, 'show_magasin_nom']);
+    Route::get('magasinEmail', [magasinController::class, 'show_magasin_eamil']);
+    Route::get('magasinPhone', [magasinController::class, 'show_magasin_phone']);
+
     Route::delete('magasin/{magasin}', [magasinController::class, 'destroy_magasin']);
     Route::put('magasin/{magasin}', [magasinController::class, 'update_magasin']);
 
