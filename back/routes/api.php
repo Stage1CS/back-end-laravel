@@ -68,12 +68,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::delete('magasin/{magasin}', [magasinController::class, 'destroy_magasin']);
     Route::put('magasin/{magasin}', [magasinController::class, 'update_magasin']);
 
-    ///////////////// EXPORT - IMPORT LIVREUR //////////////////////////////////////////////////////////////////////////////
+///////////////// EXPORT - IMPORT LIVREUR //////////////////////////////////////////////////////////////////////////////
 
     Route::get('exportlivreur', [ExportImportLivreurController::class, 'export']);
     Route::post('importlivreur', [ExportImportLivreurController::class, 'import']);
 
-    ///////////////// EXPORT - IMPORT MAGASIN//////////////////////////////////////////////////////////////////////////////
+///////////////// EXPORT - IMPORT MAGASIN//////////////////////////////////////////////////////////////////////////////
 
     Route::get('exportmagasin', [ExportImportMagasinController::class, 'export']);
     Route::post('importmagasin', [ExportImportMagasinController::class, 'import']);
