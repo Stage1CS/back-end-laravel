@@ -52,7 +52,7 @@ class magasinController extends Controller
 
     public function show_magasin_email(Request $request)
     {
-        $email = $request->eamil;
+        $email = $request->email;
         $chercher = magasin::where('eamil', $email)->get();
         return $chercher->toJson();         
     }
